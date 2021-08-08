@@ -64,14 +64,14 @@ public class TestDigits {
   public void testNegativeSixDigits() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("-297501");
-    assertEquals("-297105", result);
+    assertEquals("-297150", result);
   }
 
   @Test
   public void testNegativeSevenDigits() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("-9000006");
-    assertEquals("-6000009", result);
+    assertEquals("-6900000", result);
   }
 
   @Test

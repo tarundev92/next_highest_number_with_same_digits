@@ -83,19 +83,19 @@ class Digits{
     // System.out.println(Arrays.toString(digitsArr));
 
     // System.out.println();
-    System.out.println("swapIndex");
-    System.out.println(swapIndex);
-    System.out.println("sliceIndex");
-    System.out.println(sliceIndex);
+    // System.out.println("swapIndex");
+    // System.out.println(swapIndex);
+    // System.out.println("sliceIndex");
+    // System.out.println(sliceIndex);
     // System.out.println("digitsLen");
     // System.out.println(digitsLen);
     // System.out.println(digitsArr[sliceIndex+1]);
     if(negative){
-      System.out.println("Before sort");
-      System.out.println(Arrays.toString(digitsArr));
+      // System.out.println("Before sort");
+      // System.out.println(Arrays.toString(digitsArr));
       Arrays.sort(digitsArr, sliceIndex+1, digitsLen, Collections.reverseOrder());
-      System.out.println("After sort");
-      System.out.println(Arrays.toString(digitsArr));
+      // System.out.println("After sort");
+      // System.out.println(Arrays.toString(digitsArr));
     }else{
       Arrays.sort(digitsArr, sliceIndex+1, digitsLen);
     }
