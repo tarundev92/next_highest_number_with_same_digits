@@ -4,6 +4,20 @@ import static org.junit.Assert.assertEquals;
 public class TestDigits {
 
   @Test
+  public void testAscSortedDigits() {
+    Digits d = new Digits();
+    String result = d.sameDigitNextHighestValue("12345");
+    assertEquals("12354", result);
+  }
+
+  @Test
+  public void testDescSortedDigitsNoOutput() {
+    Digits d = new Digits();
+    String result = d.sameDigitNextHighestValue("54321");
+    assertEquals("No output", result);
+  }
+
+  @Test
   public void testTwoDigits() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("35");
@@ -25,13 +39,6 @@ public class TestDigits {
   }
 
   @Test
-  public void testDigitsNoOutput() {
-    Digits d = new Digits();
-    String result = d.sameDigitNextHighestValue("54321");
-    assertEquals("No output", result);
-  }
-
-  @Test
   public void testDigitsWithOnlyZeroNoOutput() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("0000000");
@@ -45,12 +52,25 @@ public class TestDigits {
     assertEquals("No output", result);
   }
 
-
   @Test
   public void testZeroDigitsNoOutput() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("100000");
     assertEquals("No output", result);
+  }
+
+  @Test
+  public void testNegativeAscSortedDigits() {
+    Digits d = new Digits();
+    String result = d.sameDigitNextHighestValue("-12345");
+    assertEquals("No output", result);
+  }
+
+  @Test
+  public void testNegativeDescSortedDigitsNoOutput() {
+    Digits d = new Digits();
+    String result = d.sameDigitNextHighestValue("-54321");
+    assertEquals("-54312", result);
   }
 
   @Test
@@ -99,6 +119,13 @@ public class TestDigits {
   public void testNegativeDigitsWithOnlyZeroNoOutput() {
     Digits d = new Digits();
     String result = d.sameDigitNextHighestValue("-0000000");
+    assertEquals("No output", result);
+  }
+
+  @Test
+  public void testNegativeSameDigitsNoOutput() {
+    Digits d = new Digits();
+    String result = d.sameDigitNextHighestValue("-999");
     assertEquals("No output", result);
   }
 }

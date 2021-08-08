@@ -6,14 +6,17 @@ class Digits{
   static Integer[] stringToIntArray(String strDigits){
     String firstDigit = strDigits.substring(0, 1);
     int sliceStartIndex = 1;
+    char[] charDigits;
+    int size;
+    Integer[] arr;
     if(strDigits.charAt(0) == '-'){
       firstDigit = strDigits.substring(0, 2);
       sliceStartIndex = 2;
     }
     strDigits = strDigits.substring(sliceStartIndex);
-    char[] charDigits = strDigits.toCharArray();
-    int size = charDigits.length + 1;
-    Integer[] arr = new Integer[size];
+    charDigits = strDigits.toCharArray();
+    size = charDigits.length + 1;
+    arr = new Integer[size];
     arr[0] = Integer.parseInt(firstDigit);
     for(int i=1; i<size; i++) {
       arr[i] = Character.getNumericValue(charDigits[i-1]);
@@ -40,6 +43,7 @@ class Digits{
     int[] digitsSortPart;
     int sliceIndex = -1;
     String finalDigits = "";
+    int swapIndex;
 
     for(int i=digitsLen-2; i>=0; i--){
 
@@ -62,7 +66,7 @@ class Digits{
     if(sliceIndex == -1)
     return "No output";
 
-    int swapIndex = sliceIndex+1;
+    swapIndex = sliceIndex+1;
     // System.out.println("swapIndex");
     // System.out.println(swapIndex);
     // System.out.println("digitsLen");
