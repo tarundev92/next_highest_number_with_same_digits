@@ -22,22 +22,22 @@ This repository contains the Java complied code for finding the next highest num
 
 Program takes the input through command line arguments. Below are the few sample cases.
 
-##### Case 1
+##### Sample case 1:
 - Command: ```java Main 12345 ```
 
 - Output: ```12354```
 
-##### Case 2
+##### Sample case 2:
 - Command: ```java Main 54321 ```
 
 - Output: ```No output```
 
-##### Case 3
+##### Sample case 3:
 - Command: ```java Main -12345 ```
 
 - Output: ```No output```
 
-##### Case 4
+##### Sample case 4:
 - Command: ```java Main -54321 ```
 
 - Output: ```-54312```
