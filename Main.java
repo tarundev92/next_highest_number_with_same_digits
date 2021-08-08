@@ -46,7 +46,6 @@ class Digits{
     int swapIndex;
 
     for(int i=digitsLen-2; i>=0; i--){
-
       int currDigit = digitsArr[i];
       if(negative){
         if(currDigit > prevDigit){
@@ -59,12 +58,11 @@ class Digits{
           break;
         }
       }
-
       prevDigit = currDigit;
-
     }
+
     if(sliceIndex == -1)
-    return "No output";
+      return "No output";
 
     swapIndex = sliceIndex+1;
 
@@ -77,7 +75,9 @@ class Digits{
           swapIndex = i;
       }
     }
+
     digitsArr = swapValue(digitsArr, sliceIndex, swapIndex);
+
     if(negative){
       Arrays.sort(digitsArr, sliceIndex+1, digitsLen, Collections.reverseOrder());
     }else{
@@ -85,8 +85,9 @@ class Digits{
     }
 
     finalDigits = Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
+
     if(negative)
-    finalDigits = "-" + Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
+      finalDigits = "-" + Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
 
     // return "" + Integer.parseInt(finalDigits);
     return finalDigits;
