@@ -67,10 +67,7 @@ class Digits{
     return "No output";
 
     swapIndex = sliceIndex+1;
-    // System.out.println("swapIndex");
-    // System.out.println(swapIndex);
-    // System.out.println("digitsLen");
-    // System.out.println(digitsLen);
+
     for(int i=sliceIndex+2; i<digitsLen;i++){
       if(negative){
         if(digitsArr[i] > digitsArr[swapIndex] && digitsArr[i] < digitsArr[sliceIndex])
@@ -80,45 +77,19 @@ class Digits{
           swapIndex = i;
       }
     }
-    // System.out.println("Before swap");
-    // System.out.println(Arrays.toString(digitsArr));
     digitsArr = swapValue(digitsArr, sliceIndex, swapIndex);
-    // System.out.println("After swap");
-    // System.out.println(Arrays.toString(digitsArr));
-
-    // System.out.println();
-    // System.out.println("swapIndex");
-    // System.out.println(swapIndex);
-    // System.out.println("sliceIndex");
-    // System.out.println(sliceIndex);
-    // System.out.println("digitsLen");
-    // System.out.println(digitsLen);
-    // System.out.println(digitsArr[sliceIndex+1]);
     if(negative){
-      // System.out.println("Before sort");
-      // System.out.println(Arrays.toString(digitsArr));
       Arrays.sort(digitsArr, sliceIndex+1, digitsLen, Collections.reverseOrder());
-      // System.out.println("After sort");
-      // System.out.println(Arrays.toString(digitsArr));
     }else{
       Arrays.sort(digitsArr, sliceIndex+1, digitsLen);
     }
 
-    // System.out.println("After sort");
-    // System.out.println(Arrays.toString(digitsArr));
-
-    // digitsSortPart = Arrays.copyOfRange(digitsArr, sliceIndex, digitsLen);
-
-    // System.out.println("Final val");
-    // System.out.println(Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", ""));
     finalDigits = Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
     if(negative)
     finalDigits = "-" + Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
 
     // return "" + Integer.parseInt(finalDigits);
     return finalDigits;
-
-
   }
 
 }
@@ -126,19 +97,6 @@ class Digits{
 public class Main{
 
   public static void main(String []args){
-    //  String str = "12345";
-    //  String str = "218765";
-    //  String str = "1234";
-    //  String str = "4321";
-    // String str = "534976";
-    // String str = args[0];
-    System.out.println("Your first argument is: "+args[0]);
-    // char[] charDigits = str.toCharArray();
-    //  int size = charDigits.length;
-    //  int [] arr = new int[size];
-    //  for(int i=0; i<size; i++) {
-    //     arr[i] = Character.getNumericValue(charDigits[i]);
-    //  }
     Digits d = new Digits();
     System.out.println(d.sameDigitNextHighestValue(args[0]));
   }
