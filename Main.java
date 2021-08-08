@@ -3,11 +3,19 @@ import java.util.Arrays;
 class Digits{
 
   static int[] stringToIntArray(String strDigits){
+    String firstDigit = strDigits.substring(0, 1);
+    int sliceStartIndex = 1;
+    if(strDigits.charAt(0) == '-'){
+      firstDigit = strDigits.substring(0, 2);
+      sliceStartIndex = 2;
+    }
+    strDigits = strDigits.substring(sliceStartIndex);
     char[] charDigits = strDigits.toCharArray();
-     int size = charDigits.length;
+     int size = charDigits.length + 1;
      int[] arr = new int[size];
-     for(int i=0; i<size; i++) {
-        arr[i] = Character.getNumericValue(charDigits[i]);
+     arr[0] = Integer.parseInt(firstDigit);
+     for(int i=1; i<size; i++) {
+        arr[i] = Character.getNumericValue(charDigits[i-1]);
      }
      return arr;
   }
@@ -21,20 +29,32 @@ class Digits{
 
     String sameDigitNextHighestValue(String strDigits){
         int[] digitsArr = stringToIntArray(strDigits);
-        // System.out.println(Arrays.toString(digitsArr));
         int digitsLen = digitsArr.length;
         int prevDigit = digitsArr[digitsLen-1];
         int[] digitsSortPart;
         int sliceIndex = -1;
+        boolean negative = false;
 
+        if(digitsArr[0] < 0){
+          digitsArr[0] = digitsArr[0] * -1;
+          negative = true;
+        }
 
         for(int i=digitsLen-2; i>=0; i--){
 
             int currDigit = digitsArr[i];
-            if(currDigit < prevDigit){
-                sliceIndex = i;
-                break;
+            if(negative){
+              if(currDigit > prevDigit){
+                  sliceIndex = i;
+                  break;
+              }
+            }else{
+              if(currDigit < prevDigit){
+                  sliceIndex = i;
+                  break;
+              }
             }
+
             prevDigit = currDigit;
 
         }
@@ -72,7 +92,8 @@ class Digits{
 
          // System.out.println("Final val");
         // System.out.println(Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", ""));
-
+        if(negative)
+          return "-" + Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
 
         return Arrays.toString(digitsArr).replaceAll("\\[|\\]|,|\\s", "");
 

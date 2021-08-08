@@ -25,9 +25,36 @@ public class TestDigits {
    }
 
    @Test
-   public void testDigitsNoOutput() {
+   public void testDigitsWith() {
      Digits d = new Digits();
      String result = d.sameDigitNextHighestValue("1000006");
-     assertEquals("6000001", result);
+     assertEquals("1000060", result);
+   }
+
+   @Test
+   public void testSameDigitsNoOutput() {
+     Digits d = new Digits();
+     String result = d.sameDigitNextHighestValue("111");
+     assertEquals("-1", result);
+   }
+
+   @Test
+   public void testZeroDigitsNoOutput() {
+     Digits d = new Digits();
+     String result = d.sameDigitNextHighestValue("100000");
+     assertEquals("-1", result);
+   }
+
+   @Test
+   public void testNegativeDigitsNoOutput() {
+     Digits d = new Digits();
+     String result = d.sameDigitNextHighestValue("-123");
+     assertEquals("-1", result);
+   }
+   @Test
+   public void testNegativeDigits() {
+     Digits d = new Digits();
+     String result = d.sameDigitNextHighestValue("-321");
+     assertEquals("-312", result);
    }
 }
